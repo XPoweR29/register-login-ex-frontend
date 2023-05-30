@@ -1,5 +1,4 @@
 .wrapper {
-    background-image: linear-gradient(to right bottom, #7e03c0, #5a1fac, #3a2596, #1d257d, #052162);
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -41,7 +40,7 @@
             cursor: pointer;
         }
 
-        & .registerBtn {
+        & .switchRegisterBtn {
             background-color: transparent;
             color: white;
             border: none;
