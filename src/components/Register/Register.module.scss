@@ -1,0 +1,49 @@
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .form{
+        border: 1px solid whitesmoke;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        padding: 20px;
+        border-radius: 10px;
+
+        & label {
+            color: whitesmoke;
+            margin-bottom: 5px;
+        }
+
+        & input {
+            padding: 5px;
+            border-radius: 10px;
+            border: 1px solid whitesmoke;
+            margin-bottom: 20px;
+        }
+
+        & .registerBtn {
+            background-color: transparent;
+            border: 1px solid whitesmoke;
+            color: white;
+            width: 60%;
+            padding: 5px 10px;
+            margin: 40px;
+            margin-bottom: 15px;
+            align-self: center;
+            cursor: pointer;
+        }
+
+        & .switchLoginBtn {
+            background-color: transparent;
+            color: white;
+            border: none;
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+    }
+}
