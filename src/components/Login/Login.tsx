@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Login.module.scss';
 
-export const Login = () => {
+interface Props {
+    onFormSwitch: (val: string) => void;
+}
+
+export const Login = (props: Props) => {
     const [user, setUser] = useState({
         email: '',
         pwd: ''
@@ -31,7 +35,7 @@ export const Login = () => {
                 <input id='pwd' name='pwd' type="password" value={user.pwd} onChange={handleChange} />
 
                 <button type='submit' className={styles.loginBtn}>Log in</button>
-                <button className={styles.switchRegisterBtn}>Don't have an account? Sign in</button>
+                <button onClick={()=>props.onFormSwitch('register')} className={styles.switchRegisterBtn}>Don't have an account? Sign in</button>
             </form> 
         </div>
     );

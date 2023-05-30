@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import styles from './Register.module.scss';
 
-export const Register = () => {
+interface Props {
+    onFormSwitch: (val: string) => void;
+}
+
+export const Register = (props: Props) => {
     const [user, setUser] = useState({
         username: '',
         email: '',
@@ -34,7 +38,7 @@ export const Register = () => {
                 <input id='pwd' name='pwd' type="password" value={user.pwd} onChange={handleChange}/>
 
                 <button type='submit' className={styles.registerBtn}>Sign in</button>
-                <button className={styles.switchLoginBtn}>Already have an account? Log in</button>
+                <button onClick={()=>props.onFormSwitch('login')} className={styles.switchLoginBtn}>Already have an account? Log in</button>
 
             </form>
         </div>
