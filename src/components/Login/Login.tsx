@@ -19,9 +19,32 @@ export const Login = (props: Props) => {
 
     }
 
-    const sendForm = (e: React.FormEvent) => {
+    const sendForm = async(e: React.FormEvent) => {
         e.preventDefault();
-        console.log(user);
+
+        const rawRes = await fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user),
+            credentials: 'include',
+        });
+
+        const res = await rawRes.json();
+        if(res.isSuccess) {
+            try{
+                const rawRes = await fetch('http://localhost:3001/', {
+                    method: 'GET',
+                    headers: {'authorization': `Bearer ${res.accessToken}`}
+                });
+                console.log(await rawRes.json());
+            }
+            catch(err: any) {
+                throw new Error(err.message);
+            }
+            
+        }
     }
 
     return (
