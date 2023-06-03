@@ -1,0 +1,16 @@
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgba(245, 245, 245, 0.24);
+    padding: 15px;
+
+    & .content {
+        margin-top: 30px;
+    }
+}
