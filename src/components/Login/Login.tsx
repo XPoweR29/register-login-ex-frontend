@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './Login.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../Common/Contexts/AppContext';
+import { User } from 'types';
 
 interface Props {
     onFormSwitch: (val: string) => void;
 }
 
 export const Login = (props: Props) => {
+    const {setUserData} = useContext(AppContext)!;
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         email: '',
         pwd: ''
@@ -38,7 +43,13 @@ export const Login = (props: Props) => {
                     method: 'GET',
                     headers: {'authorization': `Bearer ${res.accessToken}`}
                 });
-                console.log(await rawRes.json());
+                const data = await rawRes.json();
+                setUserData({
+                    username: data.username,
+                    email: data.email,
+                    id: data.id
+                });
+                navigate('/dashboard', {replace: true,});
             }
             catch(err: any) {
                 throw new Error(err.message);
