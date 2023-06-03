@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { checkAccessToken } from '../../utlis/checkAccessToken';
+import { getAuthorization } from '../../utlis/getAuthorization';
+import { refreshAccessToken } from '../../utlis/refreshAccessToken';
 import { AppContext } from '../Common/Contexts/AppContext';
 import styles from './Dashboard.module.scss';
 
@@ -9,17 +10,17 @@ export const Dashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const checkToken = async () => {
+        const getAuth = async () => {
             try {
-                const res = await checkAccessToken();
-                console.log(res);
+                const res = await refreshAccessToken();
+                console.log(await getAuthorization(res.newAccessToken));
             } catch(err) {
                 console.error(err);
                 navigate('/', {replace: true});
             }
         }
 
-        const interval = setInterval(checkToken, 10000);
+        const interval = setInterval(getAuth, 10000);
 
         return () => {
             clearInterval(interval);

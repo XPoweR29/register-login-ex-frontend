@@ -1,4 +1,4 @@
-export const checkAccessToken = async() => {
+export const refreshAccessToken = async() => {
     try {
         const rawRes = await fetch('http://localhost:3001/refresh', {
             credentials: 'include',
