@@ -32,7 +32,6 @@ export const Dashboard = () => {
             credentials: 'include',
         });
         setLoggedIn(false);
-        // navigate('/', {replace: true});
     };
 
     if(loggedIn) {
