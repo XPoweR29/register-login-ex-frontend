@@ -9,13 +9,15 @@ import { Register } from "./components/Register/Register";
 export const App = () => {
 	const [currentForm, setCurrentForm] = useState('login');
 	const [userData, setUserData] = useState<Partial<User>>({});
+	const [loggedIn, setLoggedIn] = useState(false);
 
 	const toggleForm = (formName: string) => {
 		setCurrentForm(formName);
 	}
 
 	const contextValues = {
-		userData, setUserData
+		userData, setUserData,
+		loggedIn, setLoggedIn,
 	}
 
   return (
@@ -24,11 +26,11 @@ export const App = () => {
 
 	<Routes>
 			<Route path="/" 
-			element={currentForm === 'login' ? 
-			<Login onFormSwitch={toggleForm}/> : 
-			<Register onFormSwitch={toggleForm}/>} />
+				element={currentForm === 'login' ? 
+				<Login onFormSwitch={toggleForm}/> : 
+				<Register onFormSwitch={toggleForm}/>} />
 
-			<Route path="/dashboard" element={<Dashboard />} />
+			<Route path="/dashboard" element={<Dashboard/>} />
 
 			<Route path="*" element={<Navigate to={"/"} />} />
 		</Routes>
