@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Login = (props: Props) => {
-    const {setUserData} = useContext(AppContext)!;
+    const {setUserData, setLoggedIn} = useContext(AppContext)!;
     const navigate = useNavigate();
     const [user, setUser] = useState({
         email: '',
@@ -49,6 +49,7 @@ export const Login = (props: Props) => {
                     email: data.email,
                     id: data.id
                 });
+                setLoggedIn(true);
                 navigate('/dashboard', {replace: true,});
             }
             catch(err: any) {
