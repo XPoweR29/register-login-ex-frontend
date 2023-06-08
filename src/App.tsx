@@ -1,8 +1,8 @@
 import React, { useState, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
+import { ToastContainer } from "react-toastify";
 import { User } from "types";
 import { AppContext } from "./components/Common/Contexts/AppContext";
-import { Dashboard } from "./components/Dashboard/Dashboard";
 import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
 
@@ -25,6 +25,7 @@ export const App = () => {
   return (
 
 	<AppContext.Provider value={contextValues}>
+		<ToastContainer/>
 
 	<Routes>
 			<Route path="/" 
@@ -34,7 +35,7 @@ export const App = () => {
 
 			<Route path="/dashboard" element={
 				<Suspense fallback={<div>Dashboard loading...</div>}>
-					<LazyDashboard/>
+					<LazyDashboard userRole={userData.userRole}/>
 				</Suspense>
 			} />
 

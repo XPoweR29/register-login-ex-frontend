@@ -9,4 +9,8 @@ body {
     height: 100vh;
     width: 100vw;
     background-image: linear-gradient(to right bottom, #7e03c0, #5a1fac, #3a2596, #1d257d, #052162);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

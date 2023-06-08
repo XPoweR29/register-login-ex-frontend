@@ -22,7 +22,7 @@ export const Register = (props: Props) => {
     const sendForm = async(e: React.FormEvent) => {
         e.preventDefault();
 
-        const rawRes = await fetch('http://localhost:3001/register', {
+        const rawRes = await fetch('http://localhost:3001/user/register', {
             method: 'POST', 
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user),
