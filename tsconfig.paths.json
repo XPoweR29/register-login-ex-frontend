@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"types": ["../back/types"]
+			"types": ["../back/src/types"]
 		}
 	}
 }

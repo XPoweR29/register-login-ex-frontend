@@ -1,5 +1,6 @@
-import {User} from 'types';
+
 import { createContext } from 'react';
+import { User } from 'types';
 
 type AppContextType = {
     userData: Partial<User>;
